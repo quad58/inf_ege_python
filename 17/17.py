@@ -113,32 +113,32 @@
 # print(len(c), max(c))
 
 # 21595
-# a = [int(x) for x in open("17/17_21595.txt")]
-# b = []
-# c = []
+a = [int(x) for x in open("17/17_21595.txt")]
+b = []
+c = []
 
-# for i in range(len(a)):
-#     if 1000 <= abs(a[i]) <= 9999 and str(a[i])[-1] == "3":
-#         b.append(a[i])
-# for i in range(len(a)-2):
-#     sm = a[i] + a[i+1] + a[i+2]
-#     if sm - min(a[i], a[i+1], a[i+2]) > len(b) ** 2:
-#         c.append(sm)
-# print(len(c), abs(max(c)))
+for i in range(len(a)):
+    if 1000 <= abs(a[i]) <= 9999 and str(a[i])[-1] == "3":
+        b.append(a[i])
+for i in range(len(a)-2):
+    sm = a[i] + a[i+1] + a[i+2]
+    if sm - min(a[i], a[i+1], a[i+2]) > len(b) ** 2:
+        c.append(sm)
+print(len(c), abs(max(c)))
 
 # 21416
-# a = [int(x) for x in open("17/17_21416.txt")]
-# b = []
-# c = []
+a = [int(x) for x in open("17/17_21416.txt")]
+b = []
+c = []
 
-# for i in range(len(a)):
-#     if a[i] < 0:
-#         b.append(a[i])
-# for i in range(len(a)-2):
-#     tr = [a[i], a[i+1], a[i+2]]
-#     if min(tr) * max(tr) > sum(b):
-#         c.append(sum(tr))
-# print(len(c), abs(max(c)))
+for i in range(len(a)):
+    if a[i] < 0:
+        b.append(a[i])
+for i in range(len(a)-2):
+    tr = [a[i], a[i+1], a[i+2]]
+    if min(tr) * max(tr) > sum(b):
+        c.append(sum(tr))
+print(len(c), abs(max(c)))
 
 # 23904
 # a = [int(x) for x in open("17/17_23904.txt")]
