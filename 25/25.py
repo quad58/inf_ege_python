@@ -519,6 +519,7 @@
 #             d = div(x - n)
 #             if all(c == 5 for c in d):
 #                 print(x, len(d))
+# не работает
 
 from math import *
 
@@ -545,3 +546,4 @@ for x in range(1_000_001, 2_000_000):
 #         a.append(x)
 # print(max(a), min(a))
 # print(max(a) % 62, min(a) % 62)
+# не успел посчитаться
