@@ -202,3 +202,31 @@ from ipaddress import *
 #     if s.count("0") % 3 == 0:
 #         k += 1
 # print(k)
+
+#k 8915
+# for mask in range(33):
+#     net = ip_network(f"195.154.162.96/{mask}", 0)
+#     print(net)
+
+#k 8790
+# net = ip_network("70.220.85.104/255.255.248.0", 0)
+# print(net[-1])
+# print(70+220+87+255)
+
+#k 8616
+# net = ip_network("208.192.226.58/255.240.0.0", 0)
+# # for ip in net:
+# #     a = int(ip)
+# #     s = bin(a)[2:]
+# #     if s.count("1") % 5 == 0 and ip != net[-1]:
+# #         print(ip)
+# print(208+207+255+224)
+
+#k 8612
+# net = ip_network("198.89.213.75/255.255.254.0", 0)
+# print(net[1])
+# print(198+89+212+1)
+
+#k 8609
+net = ip_network("191.128.66.83/255.192.0.0", 0)
+print(net[-2])

@@ -521,21 +521,21 @@
 #                 print(x, len(d))
 # не работает
 
-from math import *
+# from math import *
 
-# print(log(1000000, 5))
-s = set()
-for i in range(1, 13):
-    s.add(5 ** i)
-print(sorted(s))
+# # print(log(1000000, 5))
+# s = set()
+# for i in range(1, 13):
+#     s.add(5 ** i)
+# print(sorted(s))
 
-k = 0
-for x in range(1_000_001, 2_000_000):
-    for i in s:
-        if x > i:
-            if (x - i) % 111 == 0 and k < 5 and (x - i) % 2 == 0 and all(c not in str(x-i) for c in "13579"):
-                print(x, ceil(log(i, 5)))
-                k+=1
+# k = 0
+# for x in range(1_000_001, 2_000_000):
+#     for i in s:
+#         if x > i:
+#             if (x - i) % 111 == 0 and k < 5 and (x - i) % 2 == 0 and all(c not in str(x-i) for c in "13579"):
+#                 print(x, ceil(log(i, 5)))
+#                 k+=1
 
 # 25191
 # from fnmatch import *
@@ -547,3 +547,73 @@ for x in range(1_000_001, 2_000_000):
 # print(max(a), min(a))
 # print(max(a) % 62, min(a) % 62)
 # не успел посчитаться
+
+#
+# from fnmatch import *
+
+# for x in range(0, 10 ** 10 + 1, 1917):
+#     if fnmatch(str(x), "3?12?14*5"):
+#         print(x, x // 1917)
+
+#k 8952
+# def fact(x):
+#     d = []
+#     i = 2
+#     while i * i <= x:
+#         while x % i == 0:
+#             d.append(i)
+#             x = x // i
+#         i += 1
+#     if x > 1:
+#         d.append(x)
+#     return d
+
+# k = 0
+# for i in range(7_200_000, 10_000_000):
+#     if k == 5: break
+#     d = fact(i)
+#     if len(d) == 3 and "3" in str(d[0]) and "7" in str(d[0]) and "3" in str(d[1]) and "7" in str(d[1]) and "3" in str(d[2]) and "7" in str(d[2]):
+#         print(i, d)
+#         k += 1
+
+#k 8951
+# def fact(x):
+#     d = []
+#     i = 2
+#     while i * i <= x:
+#         while x % i == 0:
+#             d.append(i)
+#             x = x // i
+#         i += 1
+#     if x > 1:
+#         d.append(x)
+#     return d
+
+# k = 0
+# for i in range(2_400_000, 3_000_000):
+#     if k == 5: break
+#     d = fact(i)
+#     if len(d) == 3 and len(d) == len(set(d)) and ("4" in str(d[0]) or "7" in str(d[0])) and ("4" in str(d[1]) or "7" in str(d[1])) and ("4" in str(d[2]) or "7" in str(d[2])):
+#         print(i, max(d))
+#         k += 1
+
+#k 8865
+a = []
+for i in range(0, 1000, 2):
+    if i ** 0.5 == int(i ** 0.5):
+        a.append(i)
+
+b = []
+for i in range(0, 100):
+    b.append(7 ** i)
+
+c = []
+
+for i in range(0, 8_700_001, -1):
+    if ("1" in str(i) or "3" in str(i)):
+        for x in a:
+            for y in b:
+                if x + y == i:
+                    c.append([i, y])
+
+print(c)

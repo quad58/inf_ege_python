@@ -183,28 +183,97 @@
 #     if sm(a[i]) + sm(a[i+1]) + sm(a[i+2]) == min(b):
 #         c.append(a[i] + a[i+1] + a[i+2])
 # print(len(c), max(c))
-def sum_dig(number):
-    number = abs(number)
-    sm = 0
-    for x in str(number):
-        sm += int(x)
-    return sm
+# def sum_dig(number):
+#     number = abs(number)
+#     sm = 0
+#     for x in str(number):
+#         sm += int(x)
+#     return sm
 
-f = open("17/17_18176.txt")
+# f = open("17/17_18176.txt")
 
-min_4 = 10 ** 10
-a = [int(x) for x in f]
-for x in a:
-    if str(x)[-1] == "4" and x > 0:
-        min_4 = min(min_4, x)
+# min_4 = 10 ** 10
+# a = [int(x) for x in f]
+# for x in a:
+#     if str(x)[-1] == "4" and x > 0:
+#         min_4 = min(min_4, x)
 
-count = 0
-max_sum = -10 ** 10
+# count = 0
+# max_sum = -10 ** 10
+# for i in range(len(a) - 2):
+#     sm_dg1 = sum_dig(a[i])
+#     sm_dg2 = sum_dig(a[i+1])
+#     sm_dg3 = sum_dig(a[i+2])
+#     if sm_dg1 + sm_dg2 + sm_dg3 == min_4:
+#         count += 1
+#         max_sum = max(max_sum, a[i] + a[i+1] + a[i+2])
+# print(count, max_sum)
+
+#k 8931
+# a = [int(x) for x in open("17/17-456.txt")]
+# b = []
+# c = []
+
+# for i in range(len(a)):
+#     if "68" in str(a[i]) and a[i] > 0:
+#         b.append(a[i])
+
+# for i in range(len(a)-2):
+#     s = a[i] + a[i+1] + a[i+2]
+#     if s >= min(b) and s ** 0.5 == int(s ** 0.5):
+#         c.append(s)
+
+# print(len(c), max(c))
+
+#k 8930
+# a = [int(x) for x in open("17/17-456_1.txt")]
+# b = []
+# c = []
+
+# for i in range(len(a)):
+#     if "68" in str(a[i]) and a[i] > 0:
+#         b.append(a[i])
+
+# for i in range(len(a) - 2):
+#     if ((abs(a[i]) ** 0.5 == int(abs(a[i]) ** 0.5)) + (abs(a[i+1]) ** 0.5 == int(abs(a[i+1]) ** 0.5)) + (abs(a[i+2]) ** 0.5 == int(abs(a[i+2]) ** 0.5))) == 1 and a[i] + a[i+1] + a[i+2] >= min(b):
+#         c.append(a[i] + a[i+1] + a[i+2])
+
+# print(len(c), max(c))
+
+#k 8813
+# a = [int(x) for x in open("17/17-449.txt")]
+# b = []
+# c = []
+# d = []
+
+# for i in range(len(a)):
+#     if str(abs(a[i]))[:2] == "45":
+#         b.append(a[i])
+
+# for i in range(len(a) - 2):
+#     if ((a[i] < 0) + (a[i+1] < 0) + (a[i+2] < 0)) == 1 and a[i] + a[i+1] + a[i+2] >= max(b):
+#         c.append(a[i] + a[i+1] + a[i+2])
+
+# for i in range(len(a) - 2):
+#     if ((a[i] < 0) + (a[i+1] < 0) + (a[i+2] < 0)) == 1 and a[i] + a[i+1] + a[i+2] >= max(b) and str(abs(a[i] + a[i+1] + a[i+2]))[-2:] == "45":
+#         d.append(a[i] + a[i+1] + a[i+2])
+
+# print(len(c), min(d))
+
+#k 8814
+a = [int(x) for x in open("17/17-449_1.txt")]
+b = []
+c = []
+k = 0
+
+for i in range(len(a)):
+    if "38" in str(a[i]):
+        b.append(a[i])
+
 for i in range(len(a) - 2):
-    sm_dg1 = sum_dig(a[i])
-    sm_dg2 = sum_dig(a[i+1])
-    sm_dg3 = sum_dig(a[i+2])
-    if sm_dg1 + sm_dg2 + sm_dg3 == min_4:
-        count += 1
-        max_sum = max(max_sum, a[i] + a[i+1] + a[i+2])
-print(count, max_sum)
+    if ((a[i] > 0) + (a[i+1] > 0) + (a[i+2] > 0)) == 1 and a[i] + a[i+1] + a[i+2] <= max(b):
+        k += 1
+        if str(abs(a[i] + a[i+1] + a[i+2]))[:2] == "38":
+            c.append(a[i] + a[i+1] + a[i+2])
+            
+print(k, max(c))
