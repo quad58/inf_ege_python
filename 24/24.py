@@ -110,9 +110,147 @@ from re import *
 # print(s.find(m))
 
 # 21597
-s = open("24/24_21597.txt").readline()
-reg = r"[1-5][0-5]*|0"
-reg = rf"{reg}(\*{reg})*(-{reg})*"
-reg = rf"(?=({reg}))"
-m = max([x.group(1) for x in finditer(reg, s)], key=len)
-print(len(m), m)
+# s = open("24/24_21597.txt").readline()
+# reg = r"[1-5][0-5]*|0"
+# reg = rf"{reg}(\*{reg})*(-{reg})*"
+# reg = rf"(?=({reg}))"
+# m = max([x.group(1) for x in finditer(reg, s)], key=len)
+# print(len(m), m)
+
+### ДВОЙНОЙ ЦИКЛ №1 ###
+# s = open("24/k7a-3.txt").readline()
+
+# m = 0
+
+# for l in range(len(s)):
+#     for r in range(l+m, len(s) + 1):
+#         c = s[l:r]
+#         if "C" in c or "D" in c: break
+#         m = max(m, len(c))
+# print(m)
+
+#k 4217
+# s = open("24/24-157.txt").readline()
+
+# m = 0
+
+# for l in range(len(s)):
+#     for r in range(l+m, len(s) + 1):
+#         c = s[l:r]
+#         if "QW" in c: break
+#         m = max(m, len(c))
+# print(m)
+
+#k 7941
+# s = open("24/24-309.txt").readline()
+
+# m = 0
+
+# for l in range(len(s)):
+#     for r in range(l+m, len(s) + 1):
+#         c = s[l:r]
+#         if c.count("FSRQ") > 80: break
+#         if c.count("FSRQ") == 80: m = max(m, len(c))
+# print(m)
+
+#k 6675
+# s = open("24/24-263.txt").readline()
+
+# m = 0
+
+# for l in range(len(s)):
+#     for r in range(l+m, len(s) + 1):
+#         c = s[l:r]
+#         if c.count("Y") > 150: break
+#         m = max(m, len(c))
+# print(m)
+
+# 17535
+# s = open("24/24_17535.txt").readline()
+
+# m = 0
+
+# for l in range(len(s)):
+#     for r in range(l + m, len(s) + 1):
+#         c = s[l:r]
+#         if c.count("CD") > 160: break
+#         if c.count("CD") == 160: m = max(m, len(c))
+# print(m)
+
+#k 6674
+# s = open("24/24-263.txt").readline()
+
+# m = 10 ** 5
+
+# for l in range(len(s)):
+#     for r in range(l+m, l, -1):
+#         c = s[l:r]
+#         if c.count("Z") < 120: break
+#         m = min(m, len(c))
+# print(m)
+
+#k 8834
+# s = open("24/24-371.txt").readline()
+
+# m = 10000
+
+# for l in range(len(s)):
+#     for r in range(l+m, l, -1):
+#         c = s[l:r]
+#         if c.count(".") == 0 and c.count("A") < 98: break
+#         if c.count(".") == 1 and c[-1] == "." and c.count("A") == 98: m = min(m, len(c))
+# print(m)
+
+#k 8695
+# s = open("24/24-361.txt").readline()
+
+# m = 0
+
+# for l in range(len(s)):
+#     for r in range(l+m, len(s) + 1):
+#         c = s[l:r]
+#         # if c.count("2025") < 90: break
+#         if c.count("Y") > 80: break
+#         if c.count("2025") >= 90 and c.count("Y") == 80: m = max(m, len(c))
+# print(m)
+
+# 26077
+# s = open("24/24_26077.txt").readline()
+
+# m = 0
+
+# for l in range(len(s)):
+#     for r in range(l+m + 1, len(s) + 1):
+#         c = s[l:r]
+#         for j in "13579":
+#             c = c.replace(j, "1")
+#         if c[0]!='G' or c.count('1')>45 or c.count('G')>1: break
+#         if c.count("1") == 45: m = max(m, len(c))
+# print(m)
+
+# 23568
+# s = open("24/24_23568.txt").readline()
+
+# reg = r"(?=([A-Z][0-9]+[A-Z]))"
+# a = []
+# for x in finditer(reg, s):
+#     c = x.group(1)
+#     if c[0] == c[-1]:
+#         a.append(len(c))
+#         if len(c) == 1952:
+#             print(s.find(c))
+# print(max(a))
+
+# 28765
+s = open("24/24_28765.txt").readline()
+
+m = 1
+
+for l in range(len(s)):
+    for r in range(l+m, len(s)+1):
+        c = s[l:r]
+        if c.count("BC") > 180: break
+        m = max(m, len(c))
+    if l%100_000==0: print(l,len(s),m)
+
+print(m)
