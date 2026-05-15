@@ -78,15 +78,31 @@
 # print(min(m))
 
 # 20961
+# from itertools import *
+
+# def f(x):
+#     P = 15 <= x <= 142
+#     Q = 38 <= x <= 167
+#     A = a1 <= x <= a2
+#     return not (Q <= ((not A and P) <= (not Q)))
+
+# Ox = [i/4 for i in range(15 * 4, 167 * 4 + 1)]
+# m = []
+# for a1, a2 in combinations(Ox, 2):
+#     if all(f(x) == 0 for x in Ox):
+#         m.append(a2 - a1)
+# print(min(m))
+
+#k 2550
 from itertools import *
 
 def f(x):
-    P = 15 <= x <= 142
-    Q = 38 <= x <= 167
+    S = 223 <= x <= 260
+    T = 280 <= x <= 514
     A = a1 <= x <= a2
-    return not (Q <= ((not A and P) <= (not Q)))
+    return (not A) <= (T == S)
 
-Ox = [i/4 for i in range(15 * 4, 167 * 4 + 1)]
+Ox = [i/4 for i in range(223 * 4, 514 * 4 + 1)]
 m = []
 for a1, a2 in combinations(Ox, 2):
     if all(f(x) == 0 for x in Ox):
