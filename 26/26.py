@@ -87,12 +87,62 @@
 # print(max(m))
 
 #k 5325
-f = open("26/26-89.txt")
+# f = open("26/26-89.txt")
+# N = int(f.readline())
+# a = [int(x) for x in f]
+# a.sort(reverse=1)
+# b = [a[0]]
+# for x in a[1:]:
+#     if b[-1] - x >= 3:
+#         b.append(x)
+# print(len(b), b[-1])
+
+#k 6092
+# f = open("26/26-101.txt")
+# N, K = [int(x) for x in f.readline().split()]
+# a = [int(x) for x in f]
+# a.sort(reverse=1)
+# b = []
+# while len(a) > 0:
+#     box = [a[0]]
+#     for i in a:
+#         if box[-1] - i >= K:
+#             box.append(i)
+#     for x in box:
+#         a.remove(x)
+#     b.append(len(box))
+# print(len(b), max(b))
+
+#k 6790
+# f = open("26/26-128.txt")
+# N = int(f.readline())
+# a = []
+# for s in f:
+#     st, end = [int(x) for x in s.split()]
+#     a.append([st, end])
+# a = sorted(a, key=lambda x: (x[1], x[0]))
+# b = [a[0]]
+# for x in a[1:]:
+#     stp, endp = b[-1]
+#     st, end = x
+#     if st >= endp:
+#         b.append(x)
+# print(len(b))
+# b.pop(-1)
+# print([x for x in a if x[0] >= b[-1][1]])
+
+#k 6791
+f = open("26/26-129.txt")
 N = int(f.readline())
-a = [int(x) for x in f]
-a.sort(reverse=1)
-b = [a[0]]
-for x in a[1:]:
-    if b[-1] - x >= 3:
-        b.append(x)
-print(len(b), b[-1])
+a = []
+k = 0
+for s in f:
+    k += 1
+    sh, ok = [int(x) for x in s.split()]
+    if sh < ok:
+        a.append([sh, "sh", k])
+    else:
+        a.append([ok, "ok", k])
+a.sort()
+print(a[-1])
+print(len([x for x in a if x[1] == "sh"])-1)
