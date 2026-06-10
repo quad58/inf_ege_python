@@ -12,14 +12,24 @@
 #                 print(*p)
 
 #k 6708
-from itertools import *
+# from itertools import *
 
-def f(x, y, z, w):
-    return (y <= x) and (not z) and w
+# def f(x, y, z, w):
+#     return (y <= x) and (not z) and w
 
-for a1, a2, a3, a4, a5, a6 in product([0, 1], repeat=6):
-    t = [(1, 0, a1, a2), (1, 1, a3, a4), (a5, 1, 1, a6)]
-    if len(t) == len(set(t)):
-        for p in permutations("xyzw"):
-            if [f(**dict(zip(p, rows))) for rows in t] == [1, 1, 1]:
-                print(*p)
+# for a1, a2, a3, a4, a5, a6 in product([0, 1], repeat=6):
+#     t = [(1, 0, a1, a2), (1, 1, a3, a4), (a5, 1, 1, a6)]
+#     if len(t) == len(set(t)):
+#         for p in permutations("xyzw"):
+#             if [f(**dict(zip(p, rows))) for rows in t] == [1, 1, 1]:
+#                 print(*p)
+
+# 23739
+print("x y z w")
+for x in 0, 1:
+    for y in 0, 1:
+        for z in 0, 1:
+            for w in 0, 1:
+                f = (x or y) and (not (y == z)) and (not w)
+                if f == 1:
+                    print(x, y, z, w)

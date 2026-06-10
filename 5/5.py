@@ -44,30 +44,43 @@
 #         break
 
 # 25138313_5
-def db(s):
-    a = ""
-    for c in s:
-        a += c
-        a += c
-    return a
+# def db(s):
+#     a = ""
+#     for c in s:
+#         a += c
+#         a += c
+#     return a
 
-def inv(s):
-    a = ""
-    for c in s:
-        if c == "0":
-            a += "1"
-        else:
-            a += "0"
-    return a
+# def inv(s):
+#     a = ""
+#     for c in s:
+#         if c == "0":
+#             a += "1"
+#         else:
+#             a += "0"
+#     return a
 
+# for n in range(1000):
+#     s = bin(n)[2:]
+#     if n % 2 == 0:
+#         s = db(s)
+#     elif n % 2 != 0:
+#         s = inv(s)
+#         s = db(s)
+#     r = int(s, 2)
+#     if r > 60:
+#         print(n)
+#         break
+
+# 23742
+a = []
 for n in range(1000):
     s = bin(n)[2:]
-    if n % 2 == 0:
-        s = db(s)
-    elif n % 2 != 0:
-        s = inv(s)
-        s = db(s)
+    if n % 3 == 0:
+        s += s[-3:]
+    elif n % 3 != 0:
+        s += bin((n%3)*3)[2:]
     r = int(s, 2)
-    if r > 60:
-        print(n)
-        break
+    if r >= 200:
+        a.append(n)
+print(min(a))
