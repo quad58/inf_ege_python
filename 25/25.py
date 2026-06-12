@@ -598,22 +598,23 @@
 #         k += 1
 
 #k 8865
-a = []
-for i in range(0, 1000, 2):
-    if i ** 0.5 == int(i ** 0.5):
-        a.append(i)
+# a = []
+# for i in range(0, 1000, 2):
+#     if i ** 0.5 == int(i ** 0.5):
+#         a.append(i)
 
-b = []
-for i in range(0, 100):
-    b.append(7 ** i)
+# b = []
+# for i in range(0, 100):
+#     b.append(7 ** i)
 
-c = []
+# c = []
 
-for i in range(0, 8_700_001, -1):
-    if ("1" in str(i) or "3" in str(i)):
-        for x in a:
-            for y in b:
-                if x + y == i:
-                    c.append([i, y])
+# for i in range(0, 8_700_001, -1):
+#     if ("1" in str(i) or "3" in str(i)):
+#         for x in a:
+#             for y in b:
+#                 if x + y == i:
+#                     c.append([i, y])
 
-print(c)
+# print(c)
+

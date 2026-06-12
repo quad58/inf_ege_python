@@ -217,35 +217,85 @@
 # print(len(r), r[-1])
 
 #k 6406
-f = open("26/26-119.txt")
-N, L, M = [int(x) for x in f.readline().split()]
-a = []
+# f = open("26/26-119.txt")
+# N, L, M = [int(x) for x in f.readline().split()]
+# a = []
+# for s in f:
+#     st, d, t = s.split()
+#     st, d = int(st), int(d)
+#     a.append([st, d, t])
+# a.sort()
+# l = [0] * L
+# m = [0] * M
+# kl = 0
+# km = 0
+# for st, d, t in a:
+#     if t == "A":
+#         for i in range(L):
+#             if l[i] <= st:
+#                 l[i] = st+d
+#                 kl += 1
+#                 break
+#         else:
+#             for i in range(M):
+#                 if m[i] <= st:
+#                     m[i] = st + d
+#                     kl += 1
+#                     break
+#     if t == "B":
+#         for i in range(M):
+#             if m[i] <= st:
+#                 m[i] = st+d
+#                 km += 1
+#                 break
+# print(km, N - kl - km)
+
+#k 6318
+# f = open("26/26-112.txt")
+# N, M = [int(x) for x in f.readline().split()]
+# a = []
+# for s in f:
+#     st, d = [int(x) for x in s.split()]
+#     a.append((st, d))
+# a = a.sort()
+# bank = [0] * N
+# k = [0] * N
+# m = []
+# for st, d in a:
+#     for i in range(N):
+#         if bank[i] <= st and st <= 1440:
+#             bank[i] = st + d
+#             k[i] += 1
+#             m.append(st)
+#             break
+#     else:
+#         st = min(bank)
+#         for i in range(N):
+#             if bank[i] <= st and st <= 1440:
+#                 bank[i] = st + d
+#                 k[i] += 1
+#                 m.append(st)
+#                 break
+
+#k 6792
+# f = open("26/26-130.txt")
+# N = int(f.readline())
+# timeline = [0] * 1440
+# for i in range(N):
+#     st, d = [int(x) for x in f.readline().split()]
+#     for x in range(st, d + 1):
+#         timeline[x] += 1
+# print(timeline)
+# print(max(timeline))
+
+#k 4934
+f = open("26/26-76.txt")
+L, N = [int(x) for x in f.readline().split()]
+timeline = ["0"] * L
 for s in f:
-    st, d, t = s.split()
-    st, d = int(st), int(d)
-    a.append([st, d, t])
-a.sort()
-l = [0] * L
-m = [0] * M
-kl = 0
-km = 0
-for st, d, t in a:
-    if t == "A":
-        for i in range(L):
-            if l[i] <= st:
-                l[i] = st+d
-                kl += 1
-                break
-        else:
-            for i in range(M):
-                if m[i] <= st:
-                    m[i] = st + d
-                    kl += 1
-                    break
-    if t == "B":
-        for i in range(M):
-            if m[i] <= st:
-                m[i] = st+d
-                km += 1
-                break
-print(km, N - kl - km)
+    st, d = [int(x) for x in s.split()]
+    for i in range(st, d):
+        timeline[i] = " "
+timeline = "".join(timeline)
+print(timeline.count("0"))
+print(len(max(timeline.split())))
