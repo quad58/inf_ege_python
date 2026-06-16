@@ -105,36 +105,88 @@
 
 # print(dist(centr[1][0], centr[0][0]) * 10000)
 # print(max(r))
-B=[[],[],[]]
-for s in open('27/27_B_29357.txt'):
-    x,y,t = s.replace(',','.').split()
-    x,y = float(x), float(y)
-    if t=='VII': t='  VII'
-    if x>16: B[0].append([x,y,t])
-    elif y>30: B[1].append([x,y,t])
-    else: B[2].append([x,y,t])
+# B=[[],[],[]]
+# for s in open('27/27_B_29357.txt'):
+#     x,y,t = s.replace(',','.').split()
+#     x,y = float(x), float(y)
+#     if t=='VII': t='  VII'
+#     if x>16: B[0].append([x,y,t])
+#     elif y>30: B[1].append([x,y,t])
+#     else: B[2].append([x,y,t])
 
-def dist(p1,p2):
-    x1,y1,t1 = p1
-    x2,y2,t2 = p2
-    return ((x2-x1)**2+(y2-y1)**2)**0.5
+# def dist(p1,p2):
+#     x1,y1,t1 = p1
+#     x2,y2,t2 = p2
+#     return ((x2-x1)**2+(y2-y1)**2)**0.5
 
-def centr(cl):
+# def centr(cl):
+#     m = []
+#     for p in cl:
+#         s = sum(dist(p,p1) for p1 in cl)
+#         m.append([s,p])
+#     return min(m)[1]
+
+# b1 = dist(centr(B[0]),centr(B[2]))
+
+# g0 = [p for p in B[0] if p[2][0]=='G' and p[2][2:]=='V']
+# g1 = [p for p in B[1] if p[2][0]=='G' and p[2][2:]=='V']
+# g2 = [p for p in B[2] if p[2][0]=='G' and p[2][2:]=='V']
+
+# r = [dist(p,p1) for p in g0 for p1 in g0]+\
+#     [dist(p,p1) for p in g1 for p1 in g1]+\
+#     [dist(p,p1) for p in g2 for p1 in g2]
+# b2 = max(r)
+
+# print(int(b1*10000), int(b2*10000))
+
+#k 9010
+from math import *
+
+f = open("27/27-113a.txt")
+clA = [[], []]
+for s in f:
+    s = s.replace(",", ".")
+    x, y = [float(d) for d in s.split()]
+    if y > 15:
+        clA[0].append([x, y])
+    else:
+        clA[1].append([x, y])
+
+def center(cl):
     m = []
     for p in cl:
-        s = sum(dist(p,p1) for p1 in cl)
-        m.append([s,p])
+        s = sum([dist(p, p1) for p1 in cl])
+        m.append([s, p])
     return min(m)[1]
 
-b1 = dist(centr(B[0]),centr(B[2]))
+cen = [center(cl) for cl in clA]
 
-g0 = [p for p in B[0] if p[2][0]=='G' and p[2][2:]=='V']
-g1 = [p for p in B[1] if p[2][0]=='G' and p[2][2:]=='V']
-g2 = [p for p in B[2] if p[2][0]=='G' and p[2][2:]=='V']
+print(len(clA[0]), len(clA[1])) # 301
 
-r = [dist(p,p1) for p in g0 for p1 in g0]+\
-    [dist(p,p1) for p in g1 for p1 in g1]+\
-    [dist(p,p1) for p in g2 for p1 in g2]
-b2 = max(r)
+print((dist(cen[0], [-1.0, 1.3]) + dist(cen[1], [-1.0, 1.3]))*10000) # 319272
 
-print(int(b1*10000), int(b2*10000))
+clB = [[], [], []]
+for s in open("27/27-113b.txt"):
+    s = s.replace(",", ".")
+    x, y = [float(d) for d in s.split()]
+    if y > 25:
+        clB[0].append([x, y])
+    elif x > 25:
+        clB[1].append([x, y])
+    else:
+        clB[2].append([x, y])
+
+cen = [center(cl) for cl in clB]
+
+print(len(clB[0]), len(clB[1]), len(clB[2])) # 200
+
+k = 0
+for p in clB[2]:
+    if dist(p, cen[2]) < 1.6 and p != cen[2]:
+        k += 1
+print(k)
+
+dists = []
+for p in clB[0]:
+    dists.append(dist(cen[0], p))
+print(max(dists) * 10000) # 26825
