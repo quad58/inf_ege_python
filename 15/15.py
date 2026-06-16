@@ -94,17 +94,33 @@
 # print(min(m))
 
 #k 2550
-from itertools import *
+# from itertools import *
 
-def f(x):
-    S = 223 <= x <= 260
-    T = 280 <= x <= 514
-    A = a1 <= x <= a2
-    return (not A) <= (T == S)
+# def f(x):
+#     S = 223 <= x <= 260
+#     T = 280 <= x <= 514
+#     A = a1 <= x <= a2
+#     return (not A) <= (T == S)
 
-Ox = [i/4 for i in range(223 * 4, 514 * 4 + 1)]
-m = []
-for a1, a2 in combinations(Ox, 2):
-    if all(f(x) == 0 for x in Ox):
-        m.append(a2 - a1)
-print(min(m))
+# Ox = [i/4 for i in range(223 * 4, 514 * 4 + 1)]
+# m = []
+# for a1, a2 in combinations(Ox, 2):
+#     if all(f(x) == 0 for x in Ox):
+#         m.append(a2 - a1)
+# print(min(m))
+
+#k 8548
+# for x in range(1, 20):
+#     print(x, (218-13*x)/7)
+# print("y")
+# for y in range(1, 20):
+#     print(y, (218-7*y)/13)
+# # x = 13
+
+#k 8547
+print("x y")
+for x in range(1, 30):
+    print(x, (138 - 3 * x)/2)
+print("y x")
+for y in range(1, 30):
+    print(y, (138 - 2 * y)/3)
