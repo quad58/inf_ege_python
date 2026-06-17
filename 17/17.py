@@ -261,19 +261,40 @@
 # print(len(c), min(d))
 
 #k 8814
-a = [int(x) for x in open("17/17-449_1.txt")]
+# a = [int(x) for x in open("17/17-449_1.txt")]
+# b = []
+# c = []
+# k = 0
+
+# for i in range(len(a)):
+#     if "38" in str(a[i]):
+#         b.append(a[i])
+
+# for i in range(len(a) - 2):
+#     if ((a[i] > 0) + (a[i+1] > 0) + (a[i+2] > 0)) == 1 and a[i] + a[i+1] + a[i+2] <= max(b):
+#         k += 1
+#         if str(abs(a[i] + a[i+1] + a[i+2]))[:2] == "38":
+#             c.append(a[i] + a[i+1] + a[i+2])
+            
+# print(k, max(c))
+
+# 29971
+a = [int(x) for x in open("17/17_29971.txt")]
 b = []
 c = []
-k = 0
+d = []
 
 for i in range(len(a)):
-    if "38" in str(a[i]):
+    if 10 <= abs(a[i]) <= 99:
         b.append(a[i])
 
+for i in range(len(a)):
+    if abs(a[i]) % 100 == 33:
+        d.append(a[i])
+m = max(d)
+
 for i in range(len(a) - 2):
-    if ((a[i] > 0) + (a[i+1] > 0) + (a[i+2] > 0)) == 1 and a[i] + a[i+1] + a[i+2] <= max(b):
-        k += 1
-        if str(abs(a[i] + a[i+1] + a[i+2]))[:2] == "38":
-            c.append(a[i] + a[i+1] + a[i+2])
-            
-print(k, max(c))
+    if ((a[i] in b) + (a[i+1] in b) + (a[i+2] in b)) == 2 and (a[i] + a[i+1] + a[i+2])**2 < m:
+        c.append(a[i] + a[i+1] + a[i+2])
+
+print(len(c), max(c))
