@@ -289,13 +289,31 @@
 # print(max(timeline))
 
 #k 4934
-f = open("26/26-76.txt")
-L, N = [int(x) for x in f.readline().split()]
-timeline = ["0"] * L
+# f = open("26/26-76.txt")
+# L, N = [int(x) for x in f.readline().split()]
+# timeline = ["0"] * L
+# for s in f:
+#     st, d = [int(x) for x in s.split()]
+#     for i in range(st, d):
+#         timeline[i] = " "
+# timeline = "".join(timeline)
+# print(timeline.count("0"))
+# print(len(max(timeline.split())))
+
+# 28945
+f = open("26/26_28945.txt")
+N = int(f.readline())
+a = []
 for s in f:
-    st, d = [int(x) for x in s.split()]
-    for i in range(st, d):
-        timeline[i] = " "
-timeline = "".join(timeline)
-print(timeline.count("0"))
-print(len(max(timeline.split())))
+    st, t = [int(x) for x in s.split()]
+    a.append([st, st+t])
+a = sorted(a, key=lambda x: x[1])
+b = [a[0]]
+for x in a[1:]:
+    st1, end1 = b[-1]
+    st2, end2 = x
+    if st2 >= end1:
+        b.append(x)
+print(len(b))
+b.pop(-1)
+print(10000 - max(x[1] for x in a if x[0] >= b[-1][1]))
