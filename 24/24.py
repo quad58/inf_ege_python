@@ -242,15 +242,41 @@ from re import *
 # print(max(a))
 
 # 28765
-s = open("24/24_28765.txt").readline()
+# s = open("24/24_28765.txt").readline()
+
+# m = 1
+
+# for l in range(len(s)):
+#     for r in range(l+m, len(s)+1):
+#         c = s[l:r]
+#         if c.count("BC") > 180: break
+#         m = max(m, len(c))
+#     if l%100_000==0: print(l,len(s),m)
+
+# print(m)
+
+# 27634
+# s = open("24/24_27634.txt").readline()
+
+# m = 10000
+
+# for l in range(len(s)):
+#     for r in range(l+m, l, -1):
+#         c = s[l:r]
+#         if c.count("Z") < 270: break
+#         if c.count("Z") >= 270:
+#             m = min(m, len(c))
+# print(m)
+
+# 29354
+s = open("24/24_29354.txt").readline()
 
 m = 1
 
 for l in range(len(s)):
     for r in range(l+m, len(s)+1):
         c = s[l:r]
-        if c.count("BC") > 180: break
-        m = max(m, len(c))
-    if l%100_000==0: print(l,len(s),m)
-
+        if c.count("BC") > 190: break
+        if c.count("BC") == 190:
+            m = max(m, len(c))
 print(m)
