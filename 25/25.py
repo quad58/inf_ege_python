@@ -597,7 +597,7 @@
 #         print(i, max(d))
 #         k += 1
 
-#k 8865
+#k 8865 # тоже не работает
 # a = []
 # for i in range(0, 1000, 2):
 #     if i ** 0.5 == int(i ** 0.5):
@@ -618,3 +618,60 @@
 
 # print(c)
 
+# 29938 # не работает
+# a = []
+# for i in range(0, 10000, 394):
+#     a.append(i)
+
+# b = []
+# for i in range(0, 1000):
+#     b.append(5 ** i)
+
+# for i in range(100000, 1000000):
+#     if "1" not in str(i):
+#         for x in a:
+#             for y in b:
+#                 if x + y == i:
+#                     print(i, y)
+
+# 29932
+# def div(x):
+#     d = set()
+#     for i in range(1, int(x ** 0.5) + 1):
+#         if x % i == 0:
+#             d.add(i)
+#             d.add(x//i)
+#     d.remove(1)
+#     d.remove(x)
+#     return sorted(d)
+
+# k = 0
+# for n in range(700001, 1000000):
+#     if k == 5: break
+#     d = div(n)
+#     for dl in d:
+#         if sum(int(x) for x in str(dl)) == 13:
+#             print(n, min(y for y in d if sum(int(x) for x in str(y)) == 13))
+#             k += 1
+#             break
+
+# 29927
+def fact(x):
+    d = []
+    i = 2
+    while i * i <= x:
+        while x % i == 0:
+            d.append(i)
+            x = x // i
+        i += 1
+    if x > 1:
+        d.append(x)
+    return d
+
+k = 0
+for n in range(12_345_679, 100_000_000):
+    if k == 7: break
+    d = fact(n)
+    if len(d) == 3 and str(max(d)) == "".join(reversed(str(max(d)))):
+        print(n, max(d))
+        k += 1
